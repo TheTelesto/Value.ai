@@ -9,6 +9,7 @@ export type Plan = {
   models: string[]
   features: string[]
   bestFor: string[]
+  description: string
   limits?: { messages?: number; period?: string }
 }
 

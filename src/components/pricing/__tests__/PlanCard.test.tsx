@@ -12,6 +12,7 @@ const plan: Plan = {
   models: ['Claude 3.5 Sonnet'],
   features: ['Access to all Claude models'],
   bestFor: ['Coding'],
+  description: 'The go-to for developers.',
 }
 
 describe('PlanCard', () => {
