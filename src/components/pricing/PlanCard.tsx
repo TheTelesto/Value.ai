@@ -7,33 +7,56 @@ import { UseCaseTag } from '@/components/shared/UseCaseTag'
 
 export function PlanCard({ plan }: { plan: Plan }) {
   const [flipped, setFlipped] = useState(false)
-  const [hov, setHov] = useState(false)
+
+  const faceStyle: React.CSSProperties = {
+    gridArea: '1 / 1',
+    borderRadius: 'var(--r-3)',
+    padding: '20px',
+    display: 'flex',
+    flexDirection: 'column',
+    backfaceVisibility: 'hidden',
+    WebkitBackfaceVisibility: 'hidden',
+  }
 
   return (
     <div
-      className="card-flip"
-      style={{ cursor: 'pointer' }}
+      style={{
+        perspective: '1000px',
+        cursor: 'pointer',
+      }}
       onClick={() => setFlipped(!flipped)}
-      onMouseEnter={() => setHov(true)}
-      onMouseLeave={() => setHov(false)}
     >
       <div
-        className={`card-flip-inner${flipped ? ' flipped' : ''}`}
         style={{
-          transform: flipped ? 'rotateY(180deg)' : hov ? 'translateY(-2px)' : 'none',
+          transition: 'transform 0.6s',
+          transformStyle: 'preserve-3d',
+          display: 'grid',
+          transform: flipped ? 'rotateY(180deg)' : 'none',
         }}
       >
         {/* Front */}
         <div
-          className="card-face"
           style={{
-            background: hov && !flipped ? 'var(--bg-3)' : 'var(--bg-2)',
-            border: `1px solid ${hov && !flipped ? 'var(--line-3)' : 'var(--line-2)'}`,
-            borderRadius: 'var(--r-3)',
-            padding: '20px',
+            ...faceStyle,
+            background: 'var(--bg-2)',
+            border: '1px solid var(--line-2)',
             transition: 'all 220ms var(--ease-out)',
-            boxShadow: hov && !flipped ? 'var(--shadow-2)' : 'none',
-            display: 'flex', flexDirection: 'column',
+          }}
+          onMouseEnter={e => {
+            if (!flipped) {
+              e.currentTarget.style.background = 'var(--bg-3)';
+              e.currentTarget.style.borderColor = 'var(--line-3)';
+              e.currentTarget.style.boxShadow = 'var(--shadow-2)';
+              e.currentTarget.style.transform = 'translateY(-2px)';
+            }
+          }}
+          onMouseLeave={e => {
+            if (!flipped) {
+              e.currentTarget.style.background = 'var(--bg-2)';
+              e.currentTarget.style.borderColor = 'var(--line-2)';
+              e.currentTarget.style.boxShadow = 'none';
+              e.currentTarget.style.transform = 'none';
+            }
           }}
         >
           <div style={{ marginBottom: '12px' }}>
@@ -67,14 +90,11 @@ export function PlanCard({ plan }: { plan: Plan }) {
 
         {/* Back */}
         <div
-          className="card-face card-back"
           style={{
+            ...faceStyle,
             background: 'var(--bg-3)',
             border: '1px solid var(--line-2)',
-            borderRadius: 'var(--r-3)',
-            padding: '20px',
-            display: 'flex', flexDirection: 'column',
-            position: 'absolute', inset: 0,
+            transform: 'rotateY(180deg)',
           }}
         >
           <div style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'var(--electric)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '8px' }}>
