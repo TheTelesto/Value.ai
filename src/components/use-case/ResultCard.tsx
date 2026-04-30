@@ -1,5 +1,4 @@
 import { Recommendation } from '@/types'
-import { UseCaseTag } from '@/components/shared/UseCaseTag'
 
 type Props = {
   result: Recommendation | null
@@ -9,15 +8,21 @@ type Props = {
 export function ResultCard({ result, onReset }: Props) {
   if (!result) {
     return (
-      <div className="max-w-2xl mx-auto text-center py-8">
-        <p className="text-gray-600 mb-4">
-          We couldn&apos;t find a perfect match — explore our{' '}
-          <a href="/pricing" className="text-violet-600 underline">
+      <div style={{ maxWidth: '560px', margin: '0 auto', textAlign: 'center' }}>
+        <p style={{ fontFamily: 'var(--font-sans)', fontSize: '15px', color: 'var(--fg-3)', marginBottom: '16px' }}>
+          We couldn&apos;t find a perfect match &mdash; explore our{' '}
+          <a href="/pricing" style={{ color: 'var(--electric)', textDecoration: 'underline' }}>
             pricing page
           </a>{' '}
           for all options.
         </p>
-        <button onClick={onReset} className="text-sm text-violet-600 hover:underline">
+        <button
+          onClick={onReset}
+          style={{
+            fontFamily: 'var(--font-mono)', fontSize: '12px', color: 'var(--electric)',
+            background: 'none', border: 'none', cursor: 'pointer',
+          }}
+        >
           Start over
         </button>
       </div>
@@ -25,19 +30,43 @@ export function ResultCard({ result, onReset }: Props) {
   }
 
   return (
-    <div className="max-w-2xl mx-auto">
-      <div className="rounded-2xl bg-gradient-to-br from-violet-50 to-blue-50 border border-violet-100 p-8">
-        <p className="text-sm font-semibold text-violet-600 uppercase tracking-wide mb-2">
-          Best value for you
+    <div style={{ maxWidth: '560px', margin: '0 auto' }}>
+      <div style={{
+        background: 'var(--bg-2)',
+        border: '1px solid var(--line-2)',
+        borderRadius: 'var(--r-3)',
+        padding: '32px',
+      }}>
+        <p style={{
+          fontFamily: 'var(--font-mono)', fontSize: '10px',
+          color: 'var(--good)', textTransform: 'uppercase',
+          letterSpacing: '0.1em', marginBottom: '8px',
+        }}>
+          BEST VALUE FOR YOU
         </p>
-        <h2 className="text-3xl font-bold text-gray-900 mb-3">{result.recommendedPlan}</h2>
-        <p className="text-gray-600 leading-relaxed mb-6">{result.reasoning}</p>
+        <h2 style={{
+          fontFamily: 'var(--font-sans)', fontWeight: 700, fontSize: '28px',
+          letterSpacing: '-0.015em', color: 'var(--fg-1)', marginBottom: '16px',
+        }}>
+          {result.recommendedPlan}
+        </h2>
+        <p style={{ fontFamily: 'var(--font-sans)', fontSize: '14px', color: 'var(--fg-2)', lineHeight: 1.7, marginBottom: '24px' }}>
+          {result.reasoning}
+        </p>
         {result.alternatives.length > 0 && (
           <div>
-            <p className="text-sm font-semibold text-gray-500 mb-2">Also consider</p>
-            <div className="flex flex-wrap gap-2">
+            <p style={{ fontFamily: 'var(--font-mono)', fontSize: '10px', color: 'var(--fg-4)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '8px' }}>
+              ALSO CONSIDER
+            </p>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
               {result.alternatives.map(alt => (
-                <UseCaseTag key={alt} label={alt} />
+                <span key={alt} style={{
+                  fontFamily: 'var(--font-mono)', fontSize: '11px',
+                  color: 'var(--fg-3)', border: '1px solid var(--line-2)',
+                  padding: '4px 10px', borderRadius: 'var(--r-pill)',
+                }}>
+                  {alt}
+                </span>
               ))}
             </div>
           </div>
@@ -45,7 +74,11 @@ export function ResultCard({ result, onReset }: Props) {
       </div>
       <button
         onClick={onReset}
-        className="mt-4 text-sm text-violet-600 hover:underline"
+        style={{
+          fontFamily: 'var(--font-mono)', fontSize: '12px', color: 'var(--electric)',
+          background: 'none', border: 'none', cursor: 'pointer',
+          marginTop: '16px',
+        }}
       >
         Start over
       </button>

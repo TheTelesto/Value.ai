@@ -14,13 +14,13 @@ export function PricingPageClient({ plans, allTags }: Props) {
   return (
     <>
       <PricingFilter tags={allTags} selected={activeTag} onChange={setActiveTag} />
-      <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '10px', marginTop: '24px' }}>
         {filtered.map(plan => (
           <PlanCard key={plan.name} plan={plan} />
         ))}
       </div>
       {filtered.length === 0 && (
-        <p className="mt-8 text-center text-gray-500">No plans match this filter.</p>
+        <p style={{ fontFamily: 'var(--font-sans)', fontSize: '14px', color: 'var(--fg-3)', textAlign: 'center', marginTop: '48px' }}>No plans match this filter.</p>
       )}
     </>
   )

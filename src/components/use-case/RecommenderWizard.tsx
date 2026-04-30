@@ -41,33 +41,51 @@ export function RecommenderWizard({ questions, recommendations }: Props) {
   }
 
   return (
-    <div className="max-w-2xl mx-auto">
-      <div className="mb-8">
-        <div className="flex gap-1.5 mb-3">
+    <div style={{ maxWidth: '560px', margin: '0 auto' }}>
+      <div style={{ marginBottom: '32px' }}>
+        <div style={{ display: 'flex', gap: '6px', marginBottom: '12px' }}>
           {questions.map((_, i) => (
             <div
               key={i}
-              className={`h-1.5 flex-1 rounded-full transition-colors ${
-                i <= step ? 'bg-violet-600' : 'bg-gray-200'
-              }`}
+              style={{
+                height: '4px', flex: 1, borderRadius: '2px',
+                background: i <= step ? 'var(--electric)' : 'var(--bg-4)',
+                transition: 'background 220ms',
+              }}
             />
           ))}
         </div>
-        <p className="text-sm text-gray-500">
-          Question {step + 1} of {questions.length}
+        <p style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--fg-4)' }}>
+          Step {step + 1} of {questions.length}
         </p>
       </div>
-      <h2 className="text-2xl font-bold text-gray-900 mb-6">{currentQuestion.text}</h2>
-      <div className="space-y-3">
+
+      <h2 style={{
+        fontFamily: 'var(--font-sans)', fontWeight: 700, fontSize: '22px',
+        color: 'var(--fg-1)', marginBottom: '24px',
+      }}>
+        {currentQuestion.text}
+      </h2>
+
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
         {currentQuestion.options.map(opt => (
           <button
             key={opt.value}
             onClick={() => handleAnswer(opt.value)}
-            className="w-full text-left rounded-xl border border-gray-200 p-4 hover:border-violet-400 hover:bg-violet-50 transition-colors"
+            style={{
+              width: '100%', textAlign: 'left',
+              background: 'var(--bg-2)', color: 'var(--fg-1)',
+              border: '1px solid var(--line-2)',
+              borderRadius: 'var(--r-3)', padding: '16px 20px',
+              cursor: 'pointer',
+              transition: 'all 150ms var(--ease-out)',
+            }}
+            onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--line-3)'; e.currentTarget.style.background = 'var(--bg-3)' }}
+            onMouseLeave={e => { e.currentTarget.style.borderColor = 'var(--line-2)'; e.currentTarget.style.background = 'var(--bg-2)' }}
           >
-            <p className="font-semibold text-gray-900">{opt.label}</p>
+            <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 600, fontSize: '15px', color: 'var(--fg-1)' }}>{opt.label}</p>
             {opt.description && (
-              <p className="text-sm text-gray-500 mt-0.5">{opt.description}</p>
+              <p style={{ fontFamily: 'var(--font-sans)', fontSize: '13px', color: 'var(--fg-3)', marginTop: '4px' }}>{opt.description}</p>
             )}
           </button>
         ))}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Inter+Tight:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  * { margin:0; box-sizing:border-box; }
+  body { background:var(--bg-1); padding:16px 20px; }
+  .row { display:flex; gap:16px; align-items:flex-start; }
+  .item { display:flex; flex-direction:column; gap:6px; align-items:center; }
+  .box { width:52px; height:52px; background:var(--bg-2); border:1px solid var(--line-2); display:flex; align-items:center; justify-content:center; }
+  .lbl { font-family:var(--font-mono); font-size:10px; color:var(--fg-4); }
+  .val { font-family:var(--font-mono); font-size:9px; color:var(--fg-3); }
+  .shadow-row { display:flex; gap:16px; margin-top:14px; }
+  .shadow-box { flex:1; height:40px; background:var(--bg-2); border-radius:var(--r-3); display:flex;align-items:center;justify-content:center; }
+  .s1 { box-shadow:var(--shadow-1); }
+  .s2 { box-shadow:var(--shadow-2); }
+  .s3 { box-shadow:var(--shadow-3); }
+  .sg { box-shadow:var(--glow-electric); }
+</style>
+</head><body>
+<div class="row">
+  <div class="item"><div class="box" style="border-radius:2px"></div><div class="lbl">r-1</div><div class="val">2px</div></div>
+  <div class="item"><div class="box" style="border-radius:4px"></div><div class="lbl">r-2</div><div class="val">4px</div></div>
+  <div class="item"><div class="box" style="border-radius:6px"></div><div class="lbl">r-3</div><div class="val">6px</div></div>
+  <div class="item"><div class="box" style="border-radius:10px"></div><div class="lbl">r-4</div><div class="val">10px</div></div>
+  <div class="item"><div class="box" style="border-radius:999px;width:52px"></div><div class="lbl">pill</div><div class="val">999px</div></div>
+</div>
+<div class="shadow-row">
+  <div class="shadow-box s1"><span style="font-family:var(--font-mono);font-size:10px;color:var(--fg-4)">shadow-1</span></div>
+  <div class="shadow-box s2"><span style="font-family:var(--font-mono);font-size:10px;color:var(--fg-4)">shadow-2</span></div>
+  <div class="shadow-box s3"><span style="font-family:var(--font-mono);font-size:10px;color:var(--fg-4)">shadow-3</span></div>
+  <div class="shadow-box sg"><span style="font-family:var(--font-mono);font-size:10px;color:var(--electric)">glow</span></div>
+</div>
+</body></html>

@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(npm install -g @anthropic-ai/claude-code)",
+      "PowerShell(winget install GitHub.cli --accept-source-agreements --accept-package-agreements)",
+      "Bash(bash *)",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git checkout *)",
+      "Skill(update-config)",
+      "Bash(npm *)",
+      "Bash(npx *)",
+      "Bash(git *)",
+      "PowerShell(npm *)",
+      "PowerShell(npx *)",
+      "PowerShell(git *)",
+      "Bash(mv CLAUDE.md /tmp/claude-md-backup)",
+      "Bash(mv .superpowers /tmp/superpowers-backup)",
+      "Bash(mv /tmp/claude-md-backup \"C:/Users/timjh/projects/ai-value/CLAUDE.md\")",
+      "Bash(mv /tmp/superpowers-backup \"C:/Users/timjh/projects/ai-value/.superpowers\")",
+      "Bash(node -e \"const j = require\\('jest'\\); console.log\\(require\\('./node_modules/jest/package.json'\\).version\\)\")",
+      "Bash(node *)"
+    ],
+    "defaultMode": "bypassPermissions"
+  }
+}

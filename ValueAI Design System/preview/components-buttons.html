@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Inter+Tight:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  * { margin:0; box-sizing:border-box; }
+  body { background:var(--bg-1); padding:16px 20px; font-family:var(--font-sans); }
+  .row { display:flex; gap:8px; flex-wrap:wrap; align-items:flex-start; }
+  .btn { display:inline-flex; align-items:center; gap:8px; padding:9px 18px; border-radius:var(--r-3); border:none; font-family:var(--font-sans); font-size:14px; font-weight:600; cursor:pointer; transition:all var(--dur-base) var(--ease-out); letter-spacing:-0.01em; }
+  .btn-primary { background:var(--electric); color:#fff; }
+  .btn-primary:hover { background:var(--electric-hi); transform:translateY(-1px); box-shadow:0 4px 16px var(--electric-glow); }
+  .btn-secondary { background:var(--bg-2); color:var(--fg-1); border:1px solid var(--line-2); }
+  .btn-secondary:hover { background:var(--bg-3); border-color:var(--line-3); transform:translateY(-1px); }
+  .btn-ghost { background:transparent; color:var(--fg-2); border:1px solid transparent; }
+  .btn-ghost:hover { background:var(--bg-2); color:var(--fg-1); }
+  .btn-danger { background:transparent; color:var(--bad); border:1px solid var(--bad); }
+  .btn-danger:hover { background:rgba(255,93,108,0.1); }
+  .btn-sm { padding:6px 12px; font-size:13px; }
+  .btn-lg { padding:12px 24px; font-size:15px; }
+  .label { font-family:var(--font-mono); font-size:9px; color:var(--fg-4); text-transform:uppercase; letter-spacing:0.1em; margin-top:6px; }
+  .col { display:flex; flex-direction:column; gap:6px; align-items:flex-start; }
+</style>
+</head><body>
+<div class="row">
+  <div class="col">
+    <button class="btn btn-primary">Compare plans</button>
+    <div class="label">primary</div>
+  </div>
+  <div class="col">
+    <button class="btn btn-secondary">View model</button>
+    <div class="label">secondary</div>
+  </div>
+  <div class="col">
+    <button class="btn btn-ghost">Learn more</button>
+    <div class="label">ghost</div>
+  </div>
+  <div class="col">
+    <button class="btn btn-danger">Remove</button>
+    <div class="label">danger</div>
+  </div>
+  <div class="col">
+    <button class="btn btn-primary btn-sm">Save</button>
+    <div class="label">sm</div>
+  </div>
+  <div class="col">
+    <button class="btn btn-primary btn-lg">Get started</button>
+    <div class="label">lg</div>
+  </div>
+</div>
+</body></html>

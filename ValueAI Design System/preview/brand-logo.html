@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&family=Inter+Tight:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  * { margin:0; box-sizing:border-box; }
+  body { background:var(--bg-1); padding:20px 24px; }
+  .row { display:flex; gap:20px; align-items:center; }
+  .logo-full { display:flex; align-items:center; gap:4px; }
+  .bracket { font-family:var(--font-mono); font-size:28px; font-weight:600; color:var(--electric); }
+  .wordmark { font-family:var(--font-sans); font-size:28px; font-weight:800; color:var(--fg-1); letter-spacing:-0.025em; }
+  .wordmark em { color:var(--cyan); font-style:normal; }
+  .cursor { display:inline-block; width:14px; height:22px; background:var(--cyan); animation:blink 1.1s step-end infinite; vertical-align:middle; margin-left:4px; }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+  .divider { width:1px; height:48px; background:var(--line-2); }
+  .mark { width:48px; height:48px; background:var(--bg-2); border:1px solid var(--line-2); border-radius:var(--r-3); display:flex;align-items:center;justify-content:center; }
+  .mark-text { font-family:var(--font-sans); font-size:22px; font-weight:800; color:var(--fg-1); letter-spacing:-0.02em; }
+  .mark-br { font-family:var(--font-mono); font-size:14px; font-weight:600; color:var(--electric); }
+</style>
+</head><body>
+<div class="row">
+  <div class="logo-full">
+    <span class="bracket">[</span>
+    <span class="wordmark">value<em>ai</em></span>
+    <span class="bracket">]</span>
+    <span class="cursor"></span>
+  </div>
+  <div class="divider"></div>
+  <div class="mark">
+    <span class="mark-br">[</span><span class="mark-text">V</span><span class="mark-br">]</span>
+  </div>
+</div>
+</body></html>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect x="0.5" y="0.5" width="63" height="63" rx="6" fill="#0a0d14" stroke="#262d3d"></rect>
+  
+  <text x="9" y="44" font-family="JetBrains Mono, ui-monospace, monospace" font-size="32" font-weight="700" fill="#4d7cff">[</text>
+  <text x="22" y="44" font-family="Inter Tight, system-ui, sans-serif" font-size="32" font-weight="800" fill="#e8ecf4" letter-spacing="-0.02em">V</text>
+  <text x="42" y="44" font-family="JetBrains Mono, ui-monospace, monospace" font-size="32" font-weight="700" fill="#4d7cff">]</text>
+  
+  <path d="M4 4 L4 10 M4 4 L10 4" stroke="#5fd9ff" stroke-width="1"></path>
+  <path d="M60 60 L60 54 M60 60 L54 60" stroke="#5fd9ff" stroke-width="1"></path>
+</svg>

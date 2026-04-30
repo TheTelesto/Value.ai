@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 40" fill="none">
+  
+  <text x="0" y="28" font-family="JetBrains Mono, ui-monospace, monospace" font-size="22" font-weight="600" fill="#4d7cff">[</text>
+  <text x="13" y="28" font-family="Inter Tight, system-ui, sans-serif" font-size="22" font-weight="800" fill="#e8ecf4" letter-spacing="-0.02em">value</text>
+  <text x="76" y="28" font-family="Inter Tight, system-ui, sans-serif" font-size="22" font-weight="800" fill="#5fd9ff" letter-spacing="-0.02em">ai</text>
+  <text x="100" y="28" font-family="JetBrains Mono, ui-monospace, monospace" font-size="22" font-weight="600" fill="#4d7cff">]</text>
+  
+  <rect x="115" y="10" width="10" height="20" fill="#5fd9ff">
+    
+  </rect>
+</svg>

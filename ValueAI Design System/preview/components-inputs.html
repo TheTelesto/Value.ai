@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Inter+Tight:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  * { margin:0; box-sizing:border-box; }
+  body { background:var(--bg-1); padding:16px 20px; font-family:var(--font-sans); }
+  .field-group { display:flex; flex-direction:column; gap:6px; margin-bottom:12px; }
+  label { font-family:var(--font-mono); font-size:11px; color:var(--fg-3); text-transform:uppercase; letter-spacing:0.1em; }
+  input, select { width:100%; background:var(--bg-2); border:1px solid var(--line-2); border-radius:var(--r-3); padding:9px 12px; font-family:var(--font-sans); font-size:14px; color:var(--fg-1); outline:none; transition:border 220ms; }
+  input:focus, select:focus { border-color:var(--electric); box-shadow:var(--glow-electric); }
+  input::placeholder { color:var(--fg-4); }
+  .row { display:flex; gap:10px; }
+  .row .field-group { flex:1; }
+</style>
+</head><body>
+<div class="row">
+  <div class="field-group">
+    <label>Search models</label>
+    <input type="text" placeholder="GPT-4o, Claude, Gemini…">
+  </div>
+  <div class="field-group">
+    <label>Provider</label>
+    <select>
+      <option>All providers</option>
+      <option>Anthropic</option>
+      <option>OpenAI</option>
+      <option>Google</option>
+    </select>
+  </div>
+</div>
+</body></html>

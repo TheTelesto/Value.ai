@@ -1,93 +1,37 @@
 import Link from 'next/link'
 import { freeModels } from '@/data/free-models'
-import { UseCaseTag } from '@/components/shared/UseCaseTag'
-import { BenchmarkBar } from '@/components/shared/BenchmarkBar'
+import { FreeModelCard } from './FreeModelCard'
 
 export const metadata = {
-  title: 'Free & Self-Hosted AI Models — AI Value',
+  title: 'Free & Open Source AI Models — ValueAI',
   description: 'The best free and open-weight AI models you can run locally.',
-}
-
-const difficultyLabel: Record<string, string> = {
-  easy: '\uD83D\uDFE2 Easy',
-  medium: '\uD83D\uDFE1 Medium',
-  hard: '\uD83D\uDD34 Hard',
 }
 
 export default function FreeModelsPage() {
   return (
-    <main className="max-w-6xl mx-auto px-4 py-12 flex-1">
-      <div className="mb-4">
-        <Link href="/models" className="text-sm text-violet-600 hover:underline">
-          ← All Models
-        </Link>
+    <div style={{ paddingTop: '56px', minHeight: '100vh' }}>
+      <div style={{ maxWidth: 'var(--max-w)', margin: '0 auto', padding: '40px var(--gutter) 80px' }}>
+        <div style={{ marginBottom: '24px' }}>
+          <Link href="/models" style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', color: 'var(--electric)', background: 'none', border: 'none', cursor: 'pointer' }}>
+            &larr; All Models
+          </Link>
+        </div>
+        <div style={{ marginBottom: '32px' }}>
+          <div style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--fg-4)', textTransform: 'uppercase', letterSpacing: '0.12em', marginBottom: '8px' }}>OPEN SOURCE MODELS</div>
+          <h1 style={{ fontFamily: 'var(--font-sans)', fontWeight: 800, fontSize: 'clamp(28px,4vw,44px)', letterSpacing: '-0.02em', color: 'var(--fg-1)' }}>
+            Free & Open Source
+          </h1>
+          <p style={{ color: 'var(--fg-3)', fontSize: '15px', marginTop: '8px' }}>
+            High-quality models you can run locally or access for free.
+          </p>
+        </div>
+
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '10px' }}>
+          {freeModels.map(model => (
+            <FreeModelCard key={model.name} model={model} />
+          ))}
+        </div>
       </div>
-      <h1 className="text-4xl font-bold text-gray-900 mb-3">Free & Open Source Models</h1>
-      <p className="text-xl text-gray-500 mb-10">
-        High-quality models you can run locally or access for free. No subscription needed.
-      </p>
-
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {freeModels.map(model => {
-          const benchmarkEntries = Object.entries(model.benchmarks).filter(
-            (entry): entry is [string, number] => entry[1] !== undefined
-          )
-          return (
-            <div key={model.name} className="rounded-2xl border border-gray-100 p-6 shadow-sm hover:shadow-md transition-shadow">
-              <div className="flex items-start justify-between mb-3">
-                <div>
-                  <h3 className="font-bold text-gray-900 text-lg">{model.name}</h3>
-                  <p className="text-sm text-gray-500 mt-0.5">{model.provider} · {model.parameters}</p>
-                </div>
-                <span className="text-xs bg-gray-100 text-gray-600 rounded-full px-2.5 py-1">
-                  {(model.contextWindow / 1000).toFixed(0)}K ctx
-                </span>
-              </div>
-
-              <div className="flex flex-wrap gap-2 mb-4 text-xs">
-                <span className="rounded-full bg-gray-100 px-2.5 py-0.5 text-gray-600">
-                  {difficultyLabel[model.selfHostDifficulty]} to self-host
-                </span>
-                {model.minVram && (
-                  <span className="rounded-full bg-gray-100 px-2.5 py-0.5 text-gray-600">
-                    {model.minVram} VRAM
-                  </span>
-                )}
-                <span className="rounded-full bg-green-50 border border-green-200 px-2.5 py-0.5 text-green-700">
-                  {model.license}
-                </span>
-              </div>
-
-              {benchmarkEntries.length > 0 && (
-                <div className="space-y-2 mb-4">
-                  {benchmarkEntries.map(([key, val]) => (
-                    <BenchmarkBar key={key} label={key.toUpperCase()} score={val} />
-                  ))}
-                </div>
-              )}
-
-              <div>
-                <p className="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-1.5">
-                  Run with
-                </p>
-                <div className="flex flex-wrap gap-1.5 mb-3">
-                  {model.hostingOptions.map(h => (
-                    <span key={h} className="rounded-md bg-blue-50 border border-blue-100 px-2 py-0.5 text-xs text-blue-700">
-                      {h}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="flex flex-wrap gap-1.5">
-                {model.bestFor.map(tag => (
-                  <UseCaseTag key={tag} label={tag} />
-                ))}
-              </div>
-            </div>
-          )
-        })}
-      </div>
-    </main>
+    </div>
   )
 }

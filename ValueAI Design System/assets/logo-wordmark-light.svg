@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 40" fill="none">
+  <text x="0" y="28" font-family="JetBrains Mono, ui-monospace, monospace" font-size="22" font-weight="600" fill="#2a4fcc">[</text>
+  <text x="13" y="28" font-family="Inter Tight, system-ui, sans-serif" font-size="22" font-weight="800" fill="#0a0d14" letter-spacing="-0.02em">value</text>
+  <text x="76" y="28" font-family="Inter Tight, system-ui, sans-serif" font-size="22" font-weight="800" fill="#2a4fcc" letter-spacing="-0.02em">ai</text>
+  <text x="100" y="28" font-family="JetBrains Mono, ui-monospace, monospace" font-size="22" font-weight="600" fill="#2a4fcc">]</text>
+</svg>

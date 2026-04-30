@@ -5,8 +5,8 @@ export const plans: Plan[] = [
     provider: 'OpenAI',
     providerSlug: 'openai',
     accentColor: '#10a37f',
-    name: 'ChatGPT Plus',
-    price: 20,
+    name: 'ChatGPT Go',
+    price: 8,
     tier: 'plus',
     models: ['GPT-4o', 'GPT-4o mini'],
     features: [

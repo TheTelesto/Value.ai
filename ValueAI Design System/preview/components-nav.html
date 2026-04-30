@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&family=Inter+Tight:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  * { margin:0; box-sizing:border-box; }
+  body { background:var(--bg-1); padding:16px 20px; font-family:var(--font-sans); }
+  nav { display:flex; align-items:center; justify-content:space-between; padding:0 4px; }
+  .logo { font-family:var(--font-mono); font-size:18px; font-weight:600; color:var(--fg-1); }
+  .logo span { color:var(--electric); }
+  .logo em { color:var(--cyan); font-style:normal; }
+  .links { display:flex; gap:6px; align-items:center; }
+  .navlink { font-size:13px; font-weight:500; color:var(--fg-3); padding:6px 12px; border-radius:var(--r-3); text-decoration:none; transition:all 150ms; cursor:pointer; }
+  .navlink:hover, .navlink.active { color:var(--fg-1); background:var(--bg-3); }
+  .cta { background:var(--electric); color:#fff; font-size:13px; font-weight:600; padding:7px 16px; border-radius:var(--r-3); border:none; cursor:pointer; }
+</style>
+</head><body>
+<nav>
+  <div class="logo"><span>[</span>value<em>ai</em><span>]</span></div>
+  <div class="links">
+    <a class="navlink active">Compare</a>
+    <a class="navlink">Models</a>
+    <a class="navlink">Blog</a>
+    <a class="navlink">Changelog</a>
+    <button class="cta">Get started</button>
+  </div>
+</nav>
+</body></html>

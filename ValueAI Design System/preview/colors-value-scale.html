@@ -1,0 +1,37 @@
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  body{background:var(--bg-1);margin:0;padding:20px;font-family:var(--font-mono);}
+  .scale{display:flex;gap:4px;align-items:stretch;height:80px;}
+  .step{flex:1;border-radius:var(--r-2);display:flex;flex-direction:column;justify-content:flex-end;padding:8px;font-size:10px;}
+  .label{font-size:10px;color:var(--fg-3);margin-bottom:8px;text-transform:uppercase;letter-spacing:0.1em;}
+  .dots{display:flex;gap:4px;margin-top:12px;}
+  .dot{width:12px;height:12px;border-radius:50%;}
+</style></head><body>
+<div class="label">value rating scale</div>
+<div class="scale">
+  <div class="step" style="background:rgba(61,220,151,0.15);border:1px solid var(--value-5);color:var(--value-5)">
+    <span style="font-size:9px">5 / best</span>
+  </div>
+  <div class="step" style="background:rgba(135,220,95,0.15);border:1px solid var(--value-4);color:var(--value-4)">
+    <span style="font-size:9px">4 / good</span>
+  </div>
+  <div class="step" style="background:rgba(255,208,66,0.15);border:1px solid var(--value-3);color:var(--value-3)">
+    <span style="font-size:9px">3 / fair</span>
+  </div>
+  <div class="step" style="background:rgba(255,140,66,0.15);border:1px solid var(--value-2);color:var(--value-2)">
+    <span style="font-size:9px">2 / poor</span>
+  </div>
+  <div class="step" style="background:rgba(255,93,108,0.15);border:1px solid var(--value-1);color:var(--value-1)">
+    <span style="font-size:9px">1 / worst</span>
+  </div>
+</div>
+<div class="dots">
+  <div class="dot" style="background:var(--value-5)"></div>
+  <div class="dot" style="background:var(--value-4)"></div>
+  <div class="dot" style="background:var(--value-3)"></div>
+  <div class="dot" style="background:var(--value-2)"></div>
+  <div class="dot" style="background:var(--value-1)"></div>
+  <span style="font-size:11px;color:var(--fg-3);margin-left:8px;align-self:center">●●●●○ rating dots</span>
+</div>
+</body></html>

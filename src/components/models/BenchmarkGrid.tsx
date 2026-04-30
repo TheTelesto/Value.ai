@@ -11,43 +11,42 @@ export function BenchmarkGrid({ models }: { models: Model[] }) {
     )
   )
 
+  const thStyle: React.CSSProperties = {
+    fontFamily: 'var(--font-mono)', fontSize: '10px', fontWeight: 500,
+    color: 'var(--fg-4)', textTransform: 'uppercase', letterSpacing: '0.1em',
+    padding: '10px 12px', textAlign: 'left', whiteSpace: 'nowrap',
+    borderBottom: '1px solid var(--line-1)', background: 'var(--bg-1)',
+    position: 'sticky', top: '56px',
+  }
+
   return (
-    <div className="overflow-x-auto rounded-xl border border-gray-100 shadow-sm">
-      <table className="w-full text-sm">
-        <thead className="bg-gray-50">
-          <tr className="border-b border-gray-200">
-            <th className="text-left py-3 px-4 font-semibold text-gray-900">Model</th>
+    <div style={{ overflowX: 'auto', border: '1px solid var(--line-1)', borderRadius: 'var(--r-3)' }}>
+      <table style={{ width: '100%', borderCollapse: 'collapse', minWidth: '600px' }}>
+        <thead>
+          <tr>
+            <th style={thStyle}>MODEL</th>
             {allBenchmarks.map(b => (
-              <th
-                key={b}
-                className="text-right py-3 px-3 font-semibold text-gray-500 uppercase text-xs tracking-wide"
-              >
-                {b}
-              </th>
+              <th key={b} style={{ ...thStyle, textAlign: 'right' }}>{b}</th>
             ))}
-            <th className="text-right py-3 px-4 font-semibold text-gray-500 uppercase text-xs tracking-wide">
-              Context
-            </th>
+            <th style={{ ...thStyle, textAlign: 'right' }}>CONTEXT</th>
           </tr>
         </thead>
         <tbody>
           {models.map((model, i) => (
-            <tr
-              key={model.id}
-              className={`border-b border-gray-100 hover:bg-gray-50 transition-colors ${
-                i === models.length - 1 ? 'border-b-0' : ''
-              }`}
-            >
-              <td className="py-3 px-4">
-                <p className="font-semibold text-gray-900">{model.name}</p>
-                <p className="text-xs text-gray-500 mt-0.5">{model.provider}</p>
+            <tr key={model.id} style={{
+              background: i % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.01)',
+              borderTop: '1px solid var(--line-1)',
+            }}>
+              <td style={{ padding: '12px' }}>
+                <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 600, fontSize: '14px', color: 'var(--fg-1)' }}>{model.name}</p>
+                <p style={{ fontFamily: 'var(--font-mono)', fontSize: '11px', color: 'var(--fg-4)', marginTop: '2px' }}>{model.provider}</p>
               </td>
               {allBenchmarks.map(b => (
-                <td key={b} className="text-right py-3 px-3 text-gray-700">
+                <td key={b} style={{ padding: '12px', fontFamily: 'var(--font-mono)', fontSize: '13px', color: 'var(--fg-2)', textAlign: 'right' }}>
                   {model.benchmarks[b] !== undefined ? `${model.benchmarks[b]}%` : '\u2014'}
                 </td>
               ))}
-              <td className="text-right py-3 px-4 text-gray-700">
+              <td style={{ padding: '12px', fontFamily: 'var(--font-mono)', fontSize: '13px', color: 'var(--cyan)', textAlign: 'right' }}>
                 {(model.contextWindow / 1000).toFixed(0)}K
               </td>
             </tr>

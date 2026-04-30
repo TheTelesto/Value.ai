@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+  * { margin:0; box-sizing:border-box; }
+  body { background:var(--bg-1); padding:16px; font-family:var(--font-mono); }
+  .row { display:flex; gap:4px; }
+  .swatch { flex:1; height:72px; border-radius:var(--r-2); display:flex; flex-direction:column; justify-content:flex-end; padding:8px; }
+  .label { font-size:10px; color:rgba(0,0,0,0.6); font-weight:500; line-height:1; }
+  .val { font-size:9px; color:rgba(0,0,0,0.4); margin-top:2px; }
+  .dark .label { color:rgba(255,255,255,0.5); }
+  .dark .val   { color:rgba(255,255,255,0.3); }
+</style>
+</head><body>
+<div class="row">
+  <div class="swatch dark" style="background:#2a4fcc"><span class="label">electric-lo</span><span class="val">#2a4fcc</span></div>
+  <div class="swatch dark" style="background:#4d7cff"><span class="label">electric</span><span class="val">#4d7cff</span></div>
+  <div class="swatch dark" style="background:#7299ff"><span class="label">electric-hi</span><span class="val">#7299ff</span></div>
+  <div class="swatch dark" style="background:#5fd9ff"><span class="label">cyan</span><span class="val">#5fd9ff</span></div>
+  <div class="swatch dark" style="background:#8a5cff"><span class="label">ultra</span><span class="val">#8a5cff</span></div>
+</div>
+</body></html>
